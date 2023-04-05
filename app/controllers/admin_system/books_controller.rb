@@ -1,4 +1,4 @@
-class UserSystem::BooksController < UserSystemController
+class AdminSystem::BooksController < AdminSystemController
     def index
         @books = Book.all
     end

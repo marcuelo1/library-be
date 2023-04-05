@@ -1,0 +1,1 @@
+json.book     @book, partial: "admin_system/books/book", as: :book

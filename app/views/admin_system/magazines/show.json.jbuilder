@@ -1,0 +1,1 @@
+json.magazine     @magazine, partial: "admin_system/magazines/magazine", as: :magazine

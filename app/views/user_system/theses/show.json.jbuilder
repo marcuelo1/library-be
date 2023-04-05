@@ -1,1 +1,0 @@
-json.thesis     @thesis, partial: "user_system/theses/thesis", as: :thesis

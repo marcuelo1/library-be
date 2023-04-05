@@ -1,4 +1,4 @@
-class UserSystem::NewspapersController < UserSystemController
+class AdminSystem::NewspapersController < AdminSystemController
     def index
         @newspapers = Newspaper.all
     end

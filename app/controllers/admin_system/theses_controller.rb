@@ -1,4 +1,4 @@
-class UserSystem::ThesesController < UserSystemController
+class AdminSystem::ThesesController < AdminSystemController
     def index
         @theses = Thesis.all
     end

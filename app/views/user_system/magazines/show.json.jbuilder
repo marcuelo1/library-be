@@ -1,1 +1,0 @@
-json.magazine     @magazine, partial: "user_system/magazines/magazine", as: :magazine
