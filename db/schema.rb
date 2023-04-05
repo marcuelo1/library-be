@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_05_101727) do
+ActiveRecord::Schema.define(version: 2023_04_05_104316) do
 
   create_table "books", force: :cascade do |t|
     t.string "isbn"
     t.string "author"
     t.string "dewey_decimal"
     t.string "issn"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "magazines", force: :cascade do |t|
+    t.float "volume"
+    t.string "author"
+    t.integer "issue"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
