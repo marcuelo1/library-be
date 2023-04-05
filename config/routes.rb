@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :books, only: [:index, :show, :create, :destroy]
     resources :magazines, only: [:index, :show, :create, :destroy]
     resources :e_books, only: [:index, :show, :create, :destroy]
+    resources :theses, only: [:index, :show, :create, :destroy]
   end
 end

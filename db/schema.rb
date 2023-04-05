@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_05_113020) do
+ActiveRecord::Schema.define(version: 2023_04_05_113848) do
 
   create_table "books", force: :cascade do |t|
     t.string "isbn"
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 2023_04_05_113020) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
     t.index ["material_type", "material_id"], name: "index_reading_materials_on_material"
+  end
+
+  create_table "theses", force: :cascade do |t|
+    t.string "author"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
