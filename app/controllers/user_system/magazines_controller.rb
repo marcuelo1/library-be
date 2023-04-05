@@ -4,12 +4,15 @@ class UserSystem::MagazinesController < UserSystemController
     end
 
     def create
-        @magazine = Magazine.new(magazine_params)
+        Magazine.transaction do
+            @magazine = Magazine.new(magazine_params)
+            @magazine.save!
+            reading_material = ReadingMaterial.new(title: params[:title], material: @magazine)
+            reading_material.save!
 
-        if @magazine.save
             render json: { message: "Magazine created successfully" }, status: 200
-        else
-            render json: @magazine.errors, status: :unprocessable_entity
+        rescue => e
+            render json: { message: e.message }, status: :unprocessable_entity
         end
     end
 

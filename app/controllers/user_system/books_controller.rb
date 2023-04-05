@@ -4,12 +4,15 @@ class UserSystem::BooksController < UserSystemController
     end
 
     def create
-        @book = Book.new(book_params)
-
-        if @book.save
+        Book.transaction do
+            @book = Book.new(book_params)
+            @book.save!
+            reading_material = ReadingMaterial.new(title: params[:title], material: @book)
+            reading_material.save!
+            
             render json: { message: "Book created successfully" }, status: 200
-        else
-            render json: @book.errors, status: :unprocessable_entity
+        rescue => e
+            render json: { message: e.message }, status: :unprocessable_entity
         end
     end
 
