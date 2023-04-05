@@ -10,6 +10,10 @@ class ReadingMaterial < ApplicationRecord
       self.description = "#{self.title} #{self.material.author} #{self.material.volume} #{self.material.issue}"
     elsif self.material_type == "EBook"
       self.description = "#{self.title} #{self.material.author} #{self.material.isbn} #{self.material.dewey_decimal} #{self.material.issn}"
+    elsif self.material_type == "Thesis"
+      self.description = "#{self.title} #{self.material.author}"
+    elsif self.material_type == "Newspaper"
+      self.description = "#{self.title} #{self.material.publisher} #{self.material.issue_date}"
     end
 
     self.save

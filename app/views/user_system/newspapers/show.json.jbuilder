@@ -1,0 +1,1 @@
+json.newspaper   @newspaper, partial: "user_system/newspapers/newspaper", as: :newspaper
