@@ -1,0 +1,1 @@
+json.e_book     @e_book, partial: "user_system/e_books/e_book", as: :e_book
