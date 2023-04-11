@@ -12,5 +12,11 @@ Rails.application.routes.draw do
         post :return
       end
     end
+    resources :request_extensions, only: [:index, :show] do
+      collection do
+        post :approve
+        post :rejected
+      end
+    end
   end
 end

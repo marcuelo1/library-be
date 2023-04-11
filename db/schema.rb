@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_05_153532) do
+ActiveRecord::Schema.define(version: 2023_04_11_130355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,15 @@ ActiveRecord::Schema.define(version: 2023_04_05_153532) do
     t.index ["material_type", "material_id"], name: "index_reading_materials_on_material"
   end
 
+  create_table "request_extensions", force: :cascade do |t|
+    t.bigint "borrow_id", null: false
+    t.string "status"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["borrow_id"], name: "index_request_extensions_on_borrow_id"
+  end
+
   create_table "theses", force: :cascade do |t|
     t.string "author"
     t.datetime "created_at", precision: 6, null: false
@@ -75,4 +84,5 @@ ActiveRecord::Schema.define(version: 2023_04_05_153532) do
   end
 
   add_foreign_key "borrows", "reading_materials"
+  add_foreign_key "request_extensions", "borrows"
 end
