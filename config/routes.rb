@@ -15,8 +15,17 @@ Rails.application.routes.draw do
     resources :request_extensions, only: [:index, :show] do
       collection do
         post :approve
-        post :rejected
+        post :reject
       end
     end
+  end
+
+  namespace :user_system do
+    # resources :books, only: [:index, :show]
+    # resources :magazines, only: [:index, :show]
+    # resources :e_books, only: [:index, :show]
+    # resources :theses, only: [:index, :show]
+    # resources :newspapers, only: [:index, :show]
+    resources :request_extensions, only: [:show, :create]
   end
 end
