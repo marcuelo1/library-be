@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reading_material: one
+  date: 2023-04-05
+  due_date: 2023-04-05
+  is_borrowed: false
+
+two:
+  reading_material: two
+  date: 2023-04-05
+  due_date: 2023-04-05
+  is_borrowed: false

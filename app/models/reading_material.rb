@@ -2,6 +2,7 @@ class ReadingMaterial < ApplicationRecord
   belongs_to :material, polymorphic: true
   validates :material, :title, presence: true
   after_create :set_description
+  has_many :borrows, dependent: :destroy
 
   include PgSearch::Model
   pg_search_scope :search_all, against: :description,
@@ -51,5 +52,9 @@ class ReadingMaterial < ApplicationRecord
 
   def self.featured
     ReadingMaterial.order("RANDOM()").first(10).collect { |reading_material| reading_material.material }
+  end
+
+  def is_borrowed?
+    self.borrows.where(is_borrowed: true).any?
   end
 end

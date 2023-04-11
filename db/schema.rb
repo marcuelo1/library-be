@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_05_114740) do
+ActiveRecord::Schema.define(version: 2023_04_05_153532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 2023_04_05_114740) do
     t.string "issn"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "borrows", force: :cascade do |t|
+    t.bigint "reading_material_id", null: false
+    t.date "date"
+    t.date "due_date"
+    t.boolean "is_borrowed", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reading_material_id"], name: "index_borrows_on_reading_material_id"
   end
 
   create_table "e_books", force: :cascade do |t|
@@ -64,4 +74,5 @@ ActiveRecord::Schema.define(version: 2023_04_05_114740) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "borrows", "reading_materials"
 end

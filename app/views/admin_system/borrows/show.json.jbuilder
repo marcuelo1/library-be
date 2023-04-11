@@ -1,0 +1,1 @@
+json.borrow      @borrow, partial: "admin_system/borrows/borrow", as: :borrow

@@ -7,5 +7,10 @@ Rails.application.routes.draw do
     resources :e_books, only: [:index, :show, :create, :destroy]
     resources :theses, only: [:index, :show, :create, :destroy]
     resources :newspapers, only: [:index, :show, :create, :destroy]
+    resources :borrows, only: [:index, :show, :create] do
+      collection do
+        post :return
+      end
+    end
   end
 end
